@@ -15,7 +15,7 @@ public class Evento {
         this.numeroPostiTotale=numeroPostiTotale;
         LocalDate oggi = LocalDate.now();
 
-        if(this.data.isBefore(oggi)){
+        if(data.isBefore(oggi)){
             throw new IllegalArgumentException("la data non dev'essere precedente a quella odierna");
         }
         else{
@@ -72,13 +72,16 @@ public class Evento {
         }
     }
 
-    DateTimeFormatter form=DateTimeFormatter.ofLocalizedPattern("dd/MM/yyyy");
+    public int postiDisponibili(){
+        return numeroPostiTotale-numeroPostiPrenotati;
+    }
 
-    String dataFormattata=data.format(form);
-
+    
     @Override
     public String toString() {
-       return dataFormattata+" - "+titolo;
+        DateTimeFormatter form=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormattata=data.format(form);
+        return dataFormattata+" - "+titolo;
     }
 
    
