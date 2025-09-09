@@ -1,5 +1,6 @@
 import Eventi.Concerto;
 import Eventi.Evento;
+import ProgrammaEventi.ProgrammaEventi;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -122,6 +123,24 @@ public class App {
       Concerto c1=new Concerto("Metallica", dataConc, 500,oraConc, 200.5);
   
       System.out.println(c1);
+
+      Evento e2 = new Evento("gioco",LocalDate.parse("2027-08-08"),400);
+      Evento e3 = new Evento("fanta",LocalDate.parse("2027-08-08"),400);
+      Evento e4 = new Evento("carlo",LocalDate.parse("2026-06-06"),400);
+      Evento e5 = new Evento("cinema",LocalDate.parse("2035-08-08"),400);
+      Evento e6 = new Concerto("zuccchero",LocalDate.parse("2033-09-09"),5000,LocalTime.parse("22:45"),100.99);
+
+      ProgrammaEventi ListaEventi = new ProgrammaEventi("Eventi prossimi anni");
+      ListaEventi.aggiungiEvento(e1);
+      ListaEventi.aggiungiEvento(e2);
+      ListaEventi.aggiungiEvento(e3);
+      ListaEventi.aggiungiEvento(e4);
+      ListaEventi.aggiungiEvento(e5);
+      ListaEventi.aggiungiEvento(e6);
+      ListaEventi.aggiungiEvento(c1);
+      System.out.println("gli eventi in totale sono "+ListaEventi.dimensioniLista());
+      System.out.println("gli eventi in data 08/08/2027 sono "+ProgrammaEventi.listaFiltroData(ListaEventi.getEventi(),LocalDate.parse("2027-08-08")));
+      System.out.println("gli eventi in progrmma nei prossimi anni sono "+ProgrammaEventi.listaFormattata(ListaEventi.getEventi()));
 
 
     }
