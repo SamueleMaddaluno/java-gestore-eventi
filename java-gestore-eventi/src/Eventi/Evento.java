@@ -57,6 +57,7 @@ public class Evento {
     public void prenota(){
         if(data.isBefore(LocalDate.now())||numeroPostiPrenotati==numeroPostiTotale){
             throw new IllegalArgumentException("impossibile prenotare posti per quest'evento");
+           
         }
         else{
             numeroPostiPrenotati+=1;
@@ -66,6 +67,7 @@ public class Evento {
     public void disdici(){
         if (data.isBefore(LocalDate.now())||numeroPostiPrenotati==0){
              throw new IllegalArgumentException("impossibile disdire posti per l'evento");
+    
         }
         else {
             numeroPostiPrenotati-=1;

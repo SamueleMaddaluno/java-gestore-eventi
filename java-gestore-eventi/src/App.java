@@ -8,6 +8,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
+
+      // Introduzione 
+
        Scanner scan=new Scanner(System.in);
        System.out.println("Creare un nuovo evento inserendo i seguenti parametri:\n"
                  + "- Titolo\n"
@@ -17,9 +20,13 @@ public class App {
       System.out.println("scegli il nome da dare all'evento");
       String nomeE1 = scan.nextLine();
 
+      // dichiiarazione delle variabili da sovrascrivere nel costruttore
+
       LocalDate dataE1= null;
       int numeroPostiTotale1=0;
       boolean numeValido=false;
+
+      // gestione eccezioni e validazione del dato inserito dall'utente per data e numeroPosti
 
       while (dataE1==null){
         System.out.println("scegli in che data fare l'evento(nel formato yyyy-MM-dd)");
@@ -50,6 +57,8 @@ public class App {
       }
       
       Evento e1= new Evento(nomeE1, dataE1, numeroPostiTotale1);
+
+      // gestione eccezioni e validazioni del dato inserito per i metodi prenota() e disdici()
 
       System.out.println("vuoi fare delle prenotazioni per l'evento?(rispondere con 'si' o 'no')");
       String sceltaPrenotazioni=scan.nextLine();
@@ -115,6 +124,8 @@ public class App {
       }
       System.out.println("il numero di posti totali del'evento sono "+e1.getNumeriPostiTotale()+", di cui disponibili "+e1.postiDisponibili());
     
+      // creazione di istanze delle varie classi per testarne metodi e proprietà
+      
       String dataConcerto="2026-07-07";
       String oraConcerto="21:30";
       LocalDate dataConc=LocalDate.parse(dataConcerto);
